@@ -65,8 +65,9 @@ try:
 		parcala2 = re.findall('>(.*?)</option>',kaynak_kod)
 		isim = parcala2[7]
 		isim_dizin = dizin+isim+".mp3"
-		parcala = re.findall('value="mp3=(.*?)"',kaynak_kod)
+		parcala = re.findall('<audio src="(.*?)"',kaynak_kod)
 		indir = parcala[0]
+		print "İndirilmeye başladı.."
 		br.retrieve(indir,isim_dizin)
 except Exception, e :
 	print "HATA !!!!!! >> %s" %e
