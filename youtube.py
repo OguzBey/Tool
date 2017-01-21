@@ -22,7 +22,25 @@ def bilgi():
 br = mechanize.Browser()
 br.set_handle_robots(False)
 url = "http://convert2mp3.net/en/index.php"
-dizin = "F:\\"
+k_adi = getpass.getuser()
+if os.name == "nt":
+	dizin = "C:\\Users\\%s\\Desktop"%(str(k_adi))
+else:
+	if k_adi != "root":
+		try:
+			os.chdir("/home/"+k_adi+"/Masaüstü/")
+			dizin = "/home/"+k_adi+"/Masaüstü/"
+		except OSError:
+			os.chdir("/home/"+k_adi+"/Desktop/")
+			dizin = "/home/"+k_adi+"/Desktop/"
+
+	else:
+		try:
+			os.chdir("/root/Masaüstü/")
+			dizin = "/root/Masaüstü/"
+		except OSError:
+			os.chdir("/root/Desktop/")
+			dizin = "/root/Desktop/"
 try:
 	def video_bot(y_url,v_kalite):
 		br.open(url)
