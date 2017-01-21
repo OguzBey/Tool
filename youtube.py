@@ -7,12 +7,11 @@
 | |__| (_) | | | \ V /  __/ |  | |_ / __/| | | | | | |_) |__) |
  \____\___/|_| |_|\_/ \___|_|   \__|_____|_| |_| |_| .__/____/ 
                                                    |_|         Bot :) v4
-
 				Author : OguzBey
 				v4 by blackvkng
 				Ampülü yeniden bulmaya gerek yok :)
 """
-import mechanize,re,sys,getpass
+import mechanize, re, sys, getpass, os
 def bilgi():
 		print "[*] Example usage:\n[*] python youtube.py -u https://www.youtube.com/watch?v=o9vhJ-UTdBA --> for mp3"
 		print "[*] python youtube.py -v https://www.youtube.com/watch?v=o9vhJ-UTdBA 360 --> for mp4"
@@ -24,7 +23,7 @@ br.set_handle_robots(False)
 url = "http://convert2mp3.net/en/index.php"
 k_adi = getpass.getuser()
 if os.name == "nt":
-	dizin = "C:\\Users\\%s\\Desktop"%(str(k_adi))
+	dizin = "C:\\Users\\%s\\Desktop\\"%(str(k_adi))
 else:
 	if k_adi != "root":
 		try:
