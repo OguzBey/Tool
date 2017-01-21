@@ -13,10 +13,10 @@
 """
 import mechanize, re, sys, getpass, os
 def bilgi():
-		print "[*] Example usage:\n[*] python youtube.py -u https://www.youtube.com/watch?v=o9vhJ-UTdBA --> for mp3"
-		print "[*] python youtube.py -v https://www.youtube.com/watch?v=o9vhJ-UTdBA 360 --> for mp4"
-		print "[*] python youtube.py -f file.txt --> from file, for mp3"
-		print "[*] python youtube.py -fv file.txt 360 --> from file, for mp4"
+		print "[*] Example usage:\n    --> python youtube.py -u https://www.youtube.com/watch?v=o9vhJ-UTdBA --> for mp3"
+		print "    --> python youtube.py -v https://www.youtube.com/watch?v=o9vhJ-UTdBA 360 --> for mp4"
+		print "    --> python youtube.py -f file.txt --> from file, for mp3"
+		print "    --> python youtube.py -fv file.txt 360 --> from file, for mp4"
 
 br = mechanize.Browser()
 br.set_handle_robots(False)
@@ -111,7 +111,7 @@ try:
 			y_url = open(sys.argv[2], "r").read().split("\n")
 			kalie = sys.argv[3]
 			y_url = open(sys.argv[2], "r").read().split("\n")
-			print "[.] Loaded %s link(s)"%(len(y_url))
+			print "[.] Loaded %s link"%(len(y_url))
 			for i in y_url:
 				print "--> %s"%(str(i))
 			print "="*80+"\n"
@@ -123,7 +123,7 @@ try:
 	elif sys.argv[1] == "-f":
 		if sys.argv[2]:
 			y_url = open(sys.argv[2], "r").read().split("\n")
-			print "[.] Loaded %s link(s)"%(len(y_url))
+			print "[.] Loaded %s link"%(len(y_url))
 			for i in y_url:
 				print "--> %s"%(str(i))
 			print "="*80+"\n"
