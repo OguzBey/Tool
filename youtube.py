@@ -21,6 +21,7 @@ def bilgi():
 br = mechanize.Browser()
 br.set_handle_robots(False)
 url = "http://convert2mp3.net/en/index.php"
+
 k_adi = getpass.getuser()
 if os.name == "nt":
 	dizin = "C:\\Users\\%s\\Desktop\\"%(str(k_adi))
@@ -40,6 +41,7 @@ else:
 		except OSError:
 			os.chdir("/root/Desktop/")
 			dizin = "/root/Desktop/"
+
 try:
 	def video_bot(y_url,v_kalite):
 		br.open(url)
@@ -108,9 +110,8 @@ try:
 			
 	elif sys.argv[1] == "-fv":
 		if sys.argv[2]:
-			y_url = open(sys.argv[2], "r").read().split("\n")
+			y_url = open(sys.argv[2], "r").read().split()
 			kalie = sys.argv[3]
-			y_url = open(sys.argv[2], "r").read().split("\n")
 			print "[.] Loaded %s link"%(len(y_url))
 			for i in y_url:
 				print "--> %s"%(str(i))
@@ -122,7 +123,7 @@ try:
 			
 	elif sys.argv[1] == "-f":
 		if sys.argv[2]:
-			y_url = open(sys.argv[2], "r").read().split("\n")
+			y_url = open(sys.argv[2], "r").read().split()
 			print "[.] Loaded %s link"%(len(y_url))
 			for i in y_url:
 				print "--> %s"%(str(i))
