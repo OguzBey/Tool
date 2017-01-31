@@ -4,7 +4,7 @@
 #
 
 __author__ = "Black Viking"
-__date__ = "15.12.2016"
+__date__ = "31.01.2017"
 __version__ = 0
 
 import sys
@@ -34,7 +34,28 @@ def modul():
 	import getpass, os
 
 def listen():
-	file = open("musics.txt", "a")
+	k_adi = getpass.getuser()
+	if os.name == "nt":
+		path = "C:\\Users\\%s\\Desktop\\"%(str(k_adi))
+	else:
+		if k_adi != "root":
+			try:
+				os.chdir("/home/"+k_adi+"/Masaüstü/")
+				path = "/home/"+k_adi+"/Masaüstü/"
+			except OSError:
+				os.chdir("/home/"+k_adi+"/Desktop/")
+				path = "/home/"+k_adi+"/Desktop/"
+
+		else:
+			try:
+				os.chdir("/root/Masaüstü/")
+				path = "/root/Masaüstü/"
+			except OSError:
+				os.chdir("/root/Desktop/")
+				path = "/root/Desktop/"
+
+	file = open(path+"musics.txt", "a")
+	print "[+] Dosya, '%s' dizinine açıldı.\n"%(path+"musics.txt")
 	while True:
 		try:
 			if "youtube" in xerox.paste() and "watch" in xerox.paste():
@@ -45,7 +66,7 @@ def listen():
 			else:
 				pass
 		except KeyboardInterrupt:
-			print "[!] CTRL+C algılandı, çıkılıyor..."
+			print "\n[!] CTRL+C algılandı, çıkılıyor..."
 			sys.exit(0)
 
 if __name__ == "__main__":
