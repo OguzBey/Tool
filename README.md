@@ -11,6 +11,9 @@ v4 by Black Viking
 You must install xclip package..
 
 $ pacman -S xclip 
+
 $ apt-get install xclip
+
 ...
+
 etc
