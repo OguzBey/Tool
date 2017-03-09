@@ -21,7 +21,9 @@ def bilgi():
 br = mechanize.Browser()
 br.set_handle_robots(False)
 url = "http://convert2mp3.net/en/index.php"
-
+br.addheaders = [("User-agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A"),
+("Accept","text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"),
+("Content-type","application/x-www-form-urlencoded; charset=UTF-8")]
 k_adi = getpass.getuser()
 if os.name == "nt":
 	dizin = "C:\\Users\\%s\\Desktop\\"%(str(k_adi))
